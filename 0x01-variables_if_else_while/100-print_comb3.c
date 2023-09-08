@@ -1,50 +1,30 @@
 #include <stdio.h>
-#include <stdlib.h>
 /**
- * main - main block
- * Description: Write a program that prints all possible
- * different combinations of two digits
+ * main - print all single digit numbers of base 10
+ *
  * Return: 0
  */
 int main(void)
 {
-	int c = 0;
-	int f_d;
-	int l_d;
+	int x;
+	int y;
 
-	int c2;
-	int f_d2;
-	int l_d2;
-
-	while (c <= 98)
+	for (x = '0' ; x <= '9'; x++)
 	{
-		f_d = (c / 10 + '0');
-		l_d = (c % 10 + '0');
-		c2 = 0;
-		while (c2 <= 99)
+		for (y = '0' ; y <= '9'; y++)
 		{
-			f_d2 = (c2 / 10 + '0');
-			l_d2 = (c2 % 10 + '0');
-
-			if (c < c2)
+			if (y > x)
 			{
-				putchar(f_d);
-				putchar(l_d);
+				putchar(x);
+				putchar(y);
+			if (!(x == '8' && y == '9'))
+			{
+				putchar(',');
 				putchar(' ');
-				putchar(f_d2);
-				putchar(l_d2);
-
-				if (c != 98)
-				{
-					putchar(',');
-					putchar(' ');
-				}
 			}
-			c2++;
 		}
-		c++;
+	}
 	}
 	putchar('\n');
 	return (0);
 }
-
